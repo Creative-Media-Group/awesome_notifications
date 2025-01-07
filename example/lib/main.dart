@@ -440,9 +440,9 @@ class _MyHomePageState extends State<MyHomePage> {
 ///  *********************************************
 class NotificationPage extends StatefulWidget {
   const NotificationPage({
-    Key? key,
+    super.key,
     required this.receivedAction,
-  }) : super(key: key);
+  });
 
   final ReceivedAction receivedAction;
 

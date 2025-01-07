@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 import 'package:awesome_notifications_example/common_widgets/led_light.dart';
 import 'package:awesome_notifications_example/common_widgets/simple_button.dart';
@@ -12,9 +14,9 @@ class ServiceControlPanel extends StatelessWidget {
     this.title,
     this.statusControl,
     this.themeData, {
-    Key? key,
+    super.key,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +39,8 @@ class ServiceControlPanel extends StatelessWidget {
                             color: statusControl
                                 ? Colors.green
                                 : Colors.redAccent),
-                        text: (statusControl ? 'Available' : 'Unavailable') +
-                            '\n'),
+                        text:
+                            '${statusControl ? 'Available' : 'Unavailable'}\n'),
                     WidgetSpan(child: LedLight(statusControl))
                   ]),
             ),

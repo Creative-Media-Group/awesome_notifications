@@ -39,7 +39,7 @@ Future<void> externalUrl(String url) async {
 }
 
 int createUniqueID(int maxValue) {
-  Random random = new Random();
+  Random random = Random();
   return random.nextInt(maxValue);
 }
 
@@ -152,8 +152,9 @@ class NotificationUtils {
             channelKey: channelKey, permissions: permissionList);
 
     // If all permissions are allowed, there is nothing to do
-    if (permissionsAllowed.length == permissionList.length)
+    if (permissionsAllowed.length == permissionList.length) {
       return permissionsAllowed;
+    }
 
     // Refresh the permission list with only the disallowed permissions
     List<NotificationPermission> permissionsNeeded =

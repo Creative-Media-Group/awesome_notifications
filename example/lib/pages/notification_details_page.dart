@@ -82,7 +82,7 @@ class _NotificationDetailsPageState extends State<NotificationDetailsPage> {
                                           1.0
                                         ])),
                                   )
-                                : Container(
+                                : SizedBox(
                                     height: maxSize * 0.4 +
                                         mediaQueryData.padding.top,
                                     width: mediaQueryData.size.width,
@@ -220,14 +220,14 @@ class _NotificationDetailsPageState extends State<NotificationDetailsPage> {
                           children: <Widget>[
                             Text(
                               'ReceivedNotification details:',
-                              style: themeData.textTheme.titleMedium
-                                  ?.copyWith(color: themeData.colorScheme.onSurface),
+                              style: themeData.textTheme.titleMedium?.copyWith(
+                                  color: themeData.colorScheme.onSurface),
                             ),
                             const SizedBox(height: 20),
                             Text(
                               widget.results,
-                              style: themeData.textTheme.bodyMedium
-                                  ?.copyWith(color: themeData.colorScheme.onSurface),
+                              style: themeData.textTheme.bodyMedium?.copyWith(
+                                  color: themeData.colorScheme.onSurface),
                             ),
                           ],
                         )),

@@ -53,7 +53,7 @@ class DoubleSliderToConfirm extends StatefulWidget {
   final bool stickToEnd;
 
   const DoubleSliderToConfirm({
-    Key? key,
+    super.key,
     this.height = 70,
     this.width = 300,
     this.backgroundColor = Colors.white,
@@ -179,7 +179,7 @@ class _DoubleSliderToConfirmState extends State<DoubleSliderToConfirm> {
         borderRadius: widget.backgroundShape ??
             BorderRadius.all(Radius.circular(widget.height)),
         color: widget.backgroundColorEnd != null
-            ? this.calculateBackground()
+            ? calculateBackground()
             : widget.backgroundColor,
         boxShadow: <BoxShadow>[shadow],
       ),

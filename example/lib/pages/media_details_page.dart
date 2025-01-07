@@ -36,7 +36,7 @@ class MediaDetailsPageState extends State<MediaDetailsPage> {
 
   @override
   void initState() {
-    if(!MediaPlayerCentral.hasAnyMedia){
+    if (!MediaPlayerCentral.hasAnyMedia) {
       MediaPlayerCentral.addAll([
         MediaModel(
             diskImagePath: 'asset://assets/images/rock-disc.jpg',
@@ -88,21 +88,13 @@ class MediaDetailsPageState extends State<MediaDetailsPage> {
           break;
 
         case MediaLifeCycle.paused:
-          NotificationUtils.updateNotificationMediaPlayer(
-              100,
-              media,
-              durationPlayed ?? Duration.zero,
-              NotificationPlayState.paused
-          );
+          NotificationUtils.updateNotificationMediaPlayer(100, media,
+              durationPlayed ?? Duration.zero, NotificationPlayState.paused);
           break;
 
         case MediaLifeCycle.playing:
-          NotificationUtils.updateNotificationMediaPlayer(
-              100,
-              media,
-              durationPlayed ?? Duration.zero,
-              NotificationPlayState.playing
-          );
+          NotificationUtils.updateNotificationMediaPlayer(100, media,
+              durationPlayed ?? Duration.zero, NotificationPlayState.playing);
           break;
       }
     });
@@ -210,7 +202,7 @@ class MediaDetailsPageState extends State<MediaDetailsPage> {
     isLighten =
         // ignore: deprecated_member_use
         isLighten ?? themeData.brightness == Brightness.light;
-    mainColor = mainColor ?? themeData.colorScheme.background;
+    mainColor = mainColor ?? themeData.colorScheme.surface;
     contrastColor = contrastColor ?? (isLighten! ? Colors.black : Colors.white);
 
     double maxSize = max(mediaQueryData.size.width, mediaQueryData.size.height);
@@ -228,12 +220,12 @@ class MediaDetailsPageState extends State<MediaDetailsPage> {
             textTheme: Theme.of(context)
                 .textTheme
                 .copyWith(
-                  displayMedium:
-                      const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  displaySmall:
-                      const TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-                  titleLarge:
-                      const TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                  displayMedium: const TextStyle(
+                      fontSize: 22, fontWeight: FontWeight.bold),
+                  displaySmall: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.w400),
+                  titleLarge: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.w400),
                 )
                 .apply(
                   bodyColor: contrastColor,
@@ -255,7 +247,8 @@ class MediaDetailsPageState extends State<MediaDetailsPage> {
                 disabledInactiveTrackColor: contrastColor?.withOpacity(0.25),
                 disabledThumbColor: contrastColor?.withOpacity(0.25),
                 thumbColor: contrastColor,
-                thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 15)),
+                thumbShape:
+                    const RoundSliderThumbShape(enabledThumbRadius: 15)),
             canvasColor: mainColor),
         child: Builder(builder: (BuildContext context) {
           return Scaffold(
