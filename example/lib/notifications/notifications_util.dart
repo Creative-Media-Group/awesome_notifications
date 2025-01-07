@@ -195,11 +195,9 @@ class NotificationUtils {
                       fit: BoxFit.fitWidth,
                     ),
                     Text(
-                      'To proceed, you need to enable the permissions above' +
-                          (channelKey?.isEmpty ?? true
+                      'To proceed, you need to enable the permissions above${channelKey?.isEmpty ?? true
                               ? ''
-                              : ' on channel $channelKey') +
-                          ':',
+                              : ' on channel $channelKey'}:',
                       maxLines: 2,
                       textAlign: TextAlign.center,
                     ),
@@ -835,9 +833,9 @@ class NotificationUtils {
   static Future<void> showNotificationImportance(
       int id, NotificationImportance importance) async {
     String importanceKey = importance.toString().toLowerCase().split('.').last;
-    String channelKey = 'importance_' + importanceKey + '_channel';
-    String title = 'Importance levels (' + importanceKey + ')';
-    String body = 'Test of importance levels to ' + importanceKey;
+    String channelKey = 'importance_${importanceKey}_channel';
+    String title = 'Importance levels ($importanceKey)';
+    String body = 'Test of importance levels to $importanceKey';
 
     await AwesomeNotifications().setChannel(NotificationChannel(
         channelKey: channelKey,
@@ -874,7 +872,7 @@ class NotificationUtils {
     await AwesomeNotifications().setChannel(NotificationChannel(
         channelGroupKey: 'channel_tests',
         channelKey: channelName.toLowerCase().replaceAll(' ', '_'),
-        channelName: channelName + " (updated)",
+        channelName: "$channelName (updated)",
         channelDescription: "This channel was successfuly updated."));
   }
 
